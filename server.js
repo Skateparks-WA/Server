@@ -1,12 +1,16 @@
 'use strict';
 
+const skateParks = require('./skateparks.js');
+
+
 //==========dependencies==========//
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+
 const app = express();
 const ATLAS = process.env.ATLAS;
-const PORT = process.env.PORT || 3002;
+
 app.use(cors());
 app.use(express.json());
 
@@ -24,6 +28,9 @@ db.once('open', function() {
 app.get('/',(request, response) => {
   response.send('server is live');
 });
-  
 
+app.get('/parks',skateParks.getAllParks);
+
+//========PORT========//
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
