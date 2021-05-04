@@ -1,18 +1,9 @@
 'use strict';
 
 require('dotenv').config();
-const axios = require('axios');
-const skateParks = require('./skateparks.js');
+// const axios = require('axios');
 
-
-// getInformation = async (event) => {
-//   event.preventDefault();
-//   const locationURL = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.query.searchQuery}&format=json`;
-
-//   const response = await axios.get(locationURL);
-//   const userLat = response.data[0].lat;
-//   const userLon = response.data[0].lon;
-
+// const skateParks = require('./skateparks.js');
 
 //=======haversine=======//
 
@@ -38,20 +29,30 @@ function distance(lat1, lon1, lat2, lon2) {
   }
 }
 
-let userLat = 42.3601;
-let userLon = 71.0589;
+// getInformation = async (event) => {
+//   event.preventDefault();
+//   const locationURL = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.query.searchQuery}&format=json`;
 
-const work = park.map(parks =>
-  parks.dist = distance(userLat, userLon, parks.lat, parks.lon)
-);
+//   const response = await axios.get(locationURL);
+//   const userLat = response.data[0].lat;
+//   const userLon = response.data[0].lon;
 
-const sortedParks = parks.sort((a, b) => {
-  return a.dist - b.dist;
-});
+// let userLat = 42.3601;
+// let userLon = 71.0589;
 
-console.log(sortedParks);
+// const parks = app.get ('/parks', skateParks.getAllParks);
 
-module.exports = getInformation;
+// parks.map(parks =>
+//   parks.dist = distance(userLat, userLon, parks.lat, parks.lon)
+// );
 
-    // TODO : PUT URL IN FRONT END:
-    //cost locationURL = `http://localhost:3001/location?searchQuery=${this.state.searchQuery}`;
+// const sortedParks = parks.sort((a, b) => {
+//   return a.dist - b.dist;
+// });
+
+// console.log(sortedParks);
+// }
+module.exports = distance;
+
+// TODO : PUT URL IN FRONT END:
+//cost locationURL = `http://localhost:3001/location?searchQuery=${this.state.searchQuery}`;
