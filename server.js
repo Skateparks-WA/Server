@@ -1,6 +1,7 @@
 'use strict';
 
 const skateParks = require('./skateparks.js');
+const getLocationHandler = require('./location.js');
 
 
 //==========dependencies==========//
@@ -29,7 +30,9 @@ app.get('/',(request, response) => {
   response.send('server is live');
 });
 
+// app.get('/location', getLocationHandler);
 app.get('/parks',skateParks.getAllParks);
+app.post('/parks', skateParks.createPark);
 
 //========PORT========//
 const PORT = process.env.PORT || 3002;
