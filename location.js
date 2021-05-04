@@ -3,14 +3,13 @@
 require('dotenv').config();
 const axios = require('axios');
 
-// getInformation = async (event) => {
-//   event.preventDefault();
+// getInformation = async () => {
 //     const locationURL = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.searchQuery}&format=json`;
 
 //     const response = await axios.get(locationURL);
 //     const location = response.data[0];
 
-module.exports = getInformation;
+// module.exports = getInformation;
 
 
 //=======haversine=======//
@@ -31,14 +30,16 @@ function distance(lat1, lon1, lat2, lon2) {
     dist = Math.acos(dist);
     dist = dist * 180 / Math.PI;
     dist = dist * 60 * 1.1515;
-    if (unit == 'K') { dist = dist * 1.609344 }
-    if (unit == 'N') { dist = dist * 0.8684 }
+    // if (unit == 'K') { dist = dist * 1.609344 }
+    // if (unit == 'N') { dist = dist * 0.8684 }
     return dist;
   }
 }
 
+// user location
 let userLat = 42.3601;
 let userLon = 71.0589;
+
 
 let parks = [
   {
@@ -81,7 +82,8 @@ const work = parks.map( parks =>
   parks.dist = distance(userLat, userLon, parks.lat, parks.lon)
 );
 
-console.log(work);
+const sortedParks = parks.sort((a, b) => {
+  return a.dist - b.dist;
+});
 
-
-
+console.log(sortedParks);
