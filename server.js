@@ -1,7 +1,7 @@
 'use strict';
 
 const skateParks = require('./skateparks.js');
-const getLocationHandler = require('./location.js');
+// const getLocationHandler = require('./location.js');
 
 
 //==========dependencies==========//
