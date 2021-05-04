@@ -2,14 +2,16 @@
 
 require('dotenv').config();
 const axios = require('axios');
+const skateParks = require('./skateparks.js');
 
-// getInformation = async () => {
-//     const locationURL = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.searchQuery}&format=json`;
 
-//     const response = await axios.get(locationURL);
-//     const location = response.data[0];
+// getInformation = async (event) => {
+//   event.preventDefault();
+//   const locationURL = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.query.searchQuery}&format=json`;
 
-// module.exports = getInformation;
+//   const response = await axios.get(locationURL);
+//   const userLat = response.data[0].lat;
+//   const userLon = response.data[0].lon;
 
 
 //=======haversine=======//
@@ -36,49 +38,10 @@ function distance(lat1, lon1, lat2, lon2) {
   }
 }
 
-// user location
 let userLat = 42.3601;
 let userLon = 71.0589;
 
-
-let parks = [
-  {
-    'name': 'Aberdeen',
-    'lat': 46.9673768,
-    'lon': 123.7906958,
-    'dist': 0
-  },
-
-  {
-    'name': 'Anacortes',
-    'lat': 48.5036754,
-    'lon': 122.6095971,
-    'dist': 0
-  },
-
-  {
-    'name': 'Arlington',
-    'lat': 48.1644485,
-    'lon': 122.1502036,
-    'dist': 0
-  },
-
-  {
-    'name': 'Auburn',
-    'lat': 47.3320402,
-    'lon': 122.2146019,
-    'dist': 0
-  },
-
-  {
-    'name': 'Bainbridge',
-    'lat': 47.638247,
-    'lon': 122.5490859,
-    'dist': 0
-  }
-];
-
-const work = parks.map( parks =>
+const work = park.map(parks =>
   parks.dist = distance(userLat, userLon, parks.lat, parks.lon)
 );
 
@@ -87,3 +50,8 @@ const sortedParks = parks.sort((a, b) => {
 });
 
 console.log(sortedParks);
+
+module.exports = getInformation;
+
+    // TODO : PUT URL IN FRONT END:
+    //cost locationURL = `http://localhost:3001/location?searchQuery=${this.state.searchQuery}`;
