@@ -32,7 +32,17 @@ app.get('/',(request, response) => {
 
 // app.get('/location', getLocationHandler);
 app.get('/parks',skateParks.getAllParks);
+
+
+
+app.get('/daniel',skateParks.daniel);
+
+
+
+
+
 app.post('/parks', skateParks.createPark);
+
 
 //========PORT========//
 const PORT = process.env.PORT || 3002;
