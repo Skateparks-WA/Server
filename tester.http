@@ -1,7 +1,7 @@
 GET http://localhost:3001/parks
 
 ###
-GET http://localhost:3001/location?searchQuery=47,-122
+GET http://localhost:3001/location?lat=47&lon=-122
 
 ###
 

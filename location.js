@@ -25,6 +25,3 @@ function distance(lat1, lon1, lat2, lon2) {
 }
 
 module.exports = distance;
-
-// TODO : PUT URL IN FRONT END:
-//cost locationURL = `http://localhost:3001/location?searchQuery=${this.state.searchQuery}`;

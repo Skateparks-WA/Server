@@ -18,14 +18,13 @@ skateParks.createPark = async (request, response) => {
 };
 
 skateParks.sortLocations = async (request, response) => {
-  const searchQuery = request.query.searchQuery;
-  // console.log('search query',request.query.searchQuery);
+  const { lat, lon } = request.query;
+
   try {
     const parks = await ParkModel.find({});
-    // console.log('parks',parks);
 
-    const userLat = searchQuery[0];
-    const userLon = searchQuery[1];
+    const userLat = lat;
+    const userLon = lon;
 
     const parkDistance = parks.map( parks => {
       const miles = distance(userLat, userLon, parks.lat, parks.lon);
