@@ -28,7 +28,7 @@ skateParks.sortLocations = async (request, response) => {
 
     const parkDistance = parks.map( parks => {
       const miles = distance(userLat, userLon, parks.lat, parks.lon);
-      parks.distance = miles;
+      parks.distance = `${miles}`;
       return parks;
     }
     );
