@@ -1,6 +1,6 @@
 'use strict';
 
-// const axios = require('axios');
+const axios = require('axios');
 const distance = require('./location.js');
 const ParkModel = require('./Schemas.js');
 
@@ -19,10 +19,13 @@ skateParks.createPark = async (request, response) => {
 
 skateParks.sortLocations = async (request,response) => {
   const parks = await ParkModel.find({});
-  // const locationURL = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.query.searchQuery}&format=json`;
-  // const response = await axios.get(locationURL);
-  // const userLat = response.data[0].lat;
-  // const userLon = response.data[0].lon;
+  // console.log(process.env.LOCATION_IQ_KEY);
+  // const locationURL = `https://us1.locationiq.com/v1/search.php?key=${process.env.LOCATION_IQ_KEY}&q=${request.query.searchQuery}&format=json`;
+  // console.log(locationURL);
+  // const responseInfo = await axios.get(locationURL);
+  // console.log(response.Info);
+  // const userLat = responseInfo.data[0].lat;
+  // const userLon = responseInfo.data[0].lon;
 
   let userLat = 42.3601;
   let userLon = -71.0589;
