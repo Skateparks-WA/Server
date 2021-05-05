@@ -20,6 +20,7 @@ const mongoose = require('mongoose');
 mongoose.connect(`${ATLAS}`, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
+console.log(db.collections);
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('Mongoose is connected');
