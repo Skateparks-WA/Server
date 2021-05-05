@@ -1,5 +1,8 @@
 GET http://localhost:3001/parks
 
 ###
-GET http://localhost:3001/location?searchQuery=seattle
+GET http://localhost:3001/location?searchQuery=47,-122
 
+###
+
+POST http://localhost:3001/post?name=dog&lat=47&lon=-122&address=123mainst&distance=0 
