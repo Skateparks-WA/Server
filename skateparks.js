@@ -35,7 +35,7 @@ skateParks.sortLocations = async (request, response) => {
     const sortedParks = parkDistance.sort((a, b) => {
       return a.distance - b.distance;
     });
-    const filteredParks = sortedParks.slice(0,10);
+    const filteredParks = sortedParks.slice(0,50);
     response.send(filteredParks);
   } catch (err) {
     response.send(console.error(err));
